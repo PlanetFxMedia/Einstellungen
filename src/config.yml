@@ -1,0 +1,11 @@
+database:
+  host: localhost
+  port: 3306
+  db: akonia_serversystem
+  user: root
+  password: U2ViYXN0aWFuMTIy
+Messages:
+  NoPermission: '&4Dafür hast du keine Berechtigung!'
+  BuyVIP: '&6Dies ist ein Premium Feature! /shop'
+  ShowPlayers: '&6Alle Spieler sind jetzt sichtbar.'
+  HidePlayers: '&6Alle Spieler sind jetzt unsichtbar.'
