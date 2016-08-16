@@ -74,7 +74,7 @@ public class MySQL {
 			Connection con = Connect();
 			if (con != null) {
 				Statement stmt = con.createStatement();
-				stmt.execute("INSERT INTO EinstellungenPlayerConfig (uuid, name, hideplayer, scoreboard, partikel) VALUES ('" + pk.getUUID() + "', '" + pk.name + "', '" + pk.partikel + "')");
+				stmt.execute("INSERT INTO EinstellungenPlayerConfig (uuid, name, partikel) VALUES ('" + pk.getUUID() + "', '" + pk.name + "', '" + pk.partikel + "')");
 			}
 			Close(con);
 		} catch (SQLException e) {
