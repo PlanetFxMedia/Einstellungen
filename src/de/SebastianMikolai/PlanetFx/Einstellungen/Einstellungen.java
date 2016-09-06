@@ -1,5 +1,7 @@
 package de.SebastianMikolai.PlanetFx.Einstellungen;
 
+import java.sql.SQLException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,5 +24,14 @@ public class Einstellungen extends JavaPlugin {
 		server = Bukkit.getServerName();
 		MySQL.Connect();
 		MySQL.LadeTabellen();
+	}
+	
+	@Override
+	public void onDisable() {
+		try {
+			MySQL.getConnection().close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
