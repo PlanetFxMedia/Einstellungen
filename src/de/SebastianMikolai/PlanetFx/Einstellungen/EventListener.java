@@ -22,28 +22,7 @@ public class EventListener implements Listener {
 	public void onPlayerJoin(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
 		for (Player player : Bukkit.getOnlinePlayers()) {
-			if (p.hasPermission("pfx.tablist.leitung")) {
-				player.getScoreboard().getTeam("000Leitung").addEntry(p.getName());
-				p.setDisplayName(player.getScoreboard().getTeam("000Leitung").getPrefix() + p.getName());
-			} else if (p.hasPermission("pfx.tablist.admin")) {
-				player.getScoreboard().getTeam("001Admin").addEntry(p.getName());
-				p.setDisplayName(player.getScoreboard().getTeam("001Admin").getPrefix() + p.getName());
-			} else if (p.hasPermission("pfx.tablist.smod")) {
-				player.getScoreboard().getTeam("002SMod").addEntry(p.getName());
-				p.setDisplayName(player.getScoreboard().getTeam("002SMod").getPrefix() + p.getName());
-			} else if (p.hasPermission("pfx.tablist.mod")) {
-				player.getScoreboard().getTeam("003Mod").addEntry(p.getName());
-				p.setDisplayName(player.getScoreboard().getTeam("003Mod").getPrefix() + p.getName());
-			} else if (p.hasPermission("pfx.tablist.team")) {
-				player.getScoreboard().getTeam("004Team").addEntry(p.getName());
-				p.setDisplayName(player.getScoreboard().getTeam("004Team").getPrefix() + p.getName());
-			} else if (p.hasPermission("pfx.tablist.vip")) {
-				player.getScoreboard().getTeam("005Vip").addEntry(p.getName());
-				p.setDisplayName(player.getScoreboard().getTeam("005Vip").getPrefix() + p.getName());
-			} else {
-				player.getScoreboard().getTeam("006Player").addEntry(p.getName());
-				p.setDisplayName(player.getScoreboard().getTeam("006Player").getPrefix() + p.getName());
-			}
+			EinstellungenManager.getInstance().UseScoreboard(player, true, false);
 		}
 		p.getInventory().setItem(EinstellungenManager.getInstance().slot, ItemStacks.getEinstellungen());
 		PlayerKonfiguration pk = MySQL.getPlayerConfig(p.getUniqueId());
